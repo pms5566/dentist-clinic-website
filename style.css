@@ -391,16 +391,15 @@ button, input, select, textarea {
 }
 
 .hero-container {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  display: flex;
   align-items: center;
-  gap: 60px;
+  justify-content: flex-start;
   position: relative;
   z-index: 2;
 }
 
 .hero-content {
-  max-width: 620px;
+  max-width: 680px;
 }
 
 .hero-content .badge-tag {
@@ -504,9 +503,7 @@ button, input, select, textarea {
 
 /* Hero Media & Floating Badges */
 .hero-media {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
 }
 
 .image-wrapper {
