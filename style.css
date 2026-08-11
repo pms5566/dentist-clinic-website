@@ -1491,49 +1491,37 @@ button, input, select, textarea {
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 40px;
+  text-align: center;
+  gap: 20px;
 }
 
-.footer-left {
-  max-width: 320px;
+.footer-brand {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
-.footer-left .logo {
-  margin-bottom: 16px;
-}
-
-.footer-left .logo-text {
+.footer-brand .logo-text {
   color: var(--white);
 }
 
 .footer-desc {
-  font-size: 0.88rem;
-  line-height: 1.5;
-}
-
-.footer-links {
-  display: flex;
-  gap: 24px;
-}
-
-.footer-links a {
   font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.footer-links a:hover {
-  color: var(--accent);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-copy {
   width: 100%;
   text-align: center;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Appointment Success Modal */
@@ -1888,12 +1876,57 @@ button, input, select, textarea {
   }
   
   .team-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 16px !important;
+    padding: 10px 16px 20px 16px !important;
+    margin-left: -24px !important;
+    margin-right: -24px !important;
+    width: calc(100% + 48px) !important;
+    max-width: none !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
-  
+
+  .team-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .team-card {
+    flex: 0 0 85% !important;
+    max-width: 310px !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+  }
+
+  .mobile-only {
+    display: flex;
+  }
+
+  .team-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    margin-bottom: 20px;
+  }
+
+  .team-pagination .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(10, 28, 51, 0.2);
+    transition: var(--transition);
+  }
+
+  .team-pagination .dot.active {
+    width: 24px;
+    border-radius: 12px;
+    background-color: var(--primary);
+  }
+
   .form-row {
     grid-template-columns: 1fr;
     gap: 0;
@@ -1902,19 +1935,26 @@ button, input, select, textarea {
   .footer-container {
     flex-direction: column;
     text-align: center;
+    align-items: center;
   }
   
-  .footer-links {
+  .footer-hours-card {
     flex-direction: column;
+    text-align: center;
+    align-items: center;
     gap: 16px;
+    padding: 20px 16px;
+  }
+
+  .btn-emergency-call {
+    width: 100%;
+    justify-content: center;
   }
 
   /* --- Mobile Layout Enhancements --- */
   body {
-    padding-bottom: 72px;
+    padding-bottom: 76px;
   }
-
-
 
   /* Sticky Mobile Bar */
   .dentist-sticky-mobile-bar {
@@ -1972,4 +2012,126 @@ button, input, select, textarea {
     box-shadow: var(--shadow-md);
   }
 
+}
+
+/* --- Base App Footer Styling --- */
+.footer-chips-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  margin-bottom: 28px;
+}
+
+.footer-chip {
+  padding: 8px 18px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  font-size: 0.88rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: var(--transition);
+}
+
+.footer-chip:hover {
+  background-color: rgba(217, 248, 21, 0.15);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.footer-chip.active-chip {
+  background-color: var(--accent);
+  color: var(--primary-dark);
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+.footer-hours-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 28px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 28px;
+  width: 100%;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hours-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.hours-time {
+  font-size: 0.98rem;
+  color: var(--white);
+}
+
+.hours-sub {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-emergency-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: var(--accent);
+  color: var(--primary-dark);
+  font-weight: 700;
+  font-size: 0.88rem;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(217, 248, 21, 0.3);
+}
+
+.phone-icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-social-chips {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.social-chip {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.social-chip:hover {
+  background-color: var(--accent);
+  color: var(--primary-dark);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.mobile-only {
+  display: none;
 }
