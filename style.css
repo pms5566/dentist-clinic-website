@@ -1586,6 +1586,180 @@ button, input, select, textarea {
   width: 100%;
 }
 
+/* --------------------------------------------------------------------------
+   Smile Makeover Before/After Gallery
+   -------------------------------------------------------------------------- */
+.makeover-section {
+  padding: 80px 0;
+  background-color: var(--white);
+  border-top: 1px solid var(--bg-light);
+}
+
+.before-after-slider {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  height: 450px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  user-select: none;
+  border: 4px solid var(--white);
+}
+
+.slider-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+}
+
+.slider-img.img-before {
+  width: 50%;
+  z-index: 2;
+  border-right: 3px solid var(--white);
+}
+
+.slider-img.img-after {
+  width: 100%;
+  z-index: 1;
+}
+
+.slider-label {
+  position: absolute;
+  bottom: 20px;
+  padding: 8px 16px;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  z-index: 5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.label-before {
+  left: 20px;
+}
+
+.label-after {
+  right: 20px;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  background-color: var(--primary);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  cursor: ew-resize;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+.slider-handle::before, .slider-handle::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 220px;
+  background-color: var(--white);
+  z-index: -1;
+}
+
+.slider-handle::before {
+  bottom: 40px;
+}
+
+.slider-handle::after {
+  top: 40px;
+}
+
+/* Sticky Mobile Bar Base (Desktop Hidden) */
+.dentist-sticky-mobile-bar {
+  display: none;
+}
+
+/* Doctor Bottom Sheet / Popup Overlay */
+.doctor-bottom-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.doctor-bottom-sheet-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.doctor-bottom-sheet {
+  width: 100%;
+  max-width: 520px;
+  background-color: var(--white);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: popupScale 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+@keyframes popupScale {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.sheet-drag-handle {
+  display: none;
+}
+
+.sheet-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: var(--bg-light);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.sheet-body {
+  padding: 32px;
+  box-sizing: border-box;
+}
+
 /* Responsive Breakpoints */
 
 @media (max-width: 1024px) {
@@ -1737,5 +1911,257 @@ button, input, select, textarea {
   .footer-links {
     flex-direction: column;
     gap: 16px;
+  }
+
+  /* --- Mobile Layout Enhancements --- */
+  body {
+    padding-bottom: 72px;
+  }
+
+  /* Services Horizontal swiper */
+  .services-explorer {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+  .services-tabs {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 12px !important;
+    gap: 10px !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  .services-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+  .service-tab-btn {
+    scroll-snap-align: start !important;
+    flex-shrink: 0 !important;
+    padding: 12px 18px !important;
+    gap: 8px !important;
+    border-radius: 14px !important;
+  }
+  .service-tab-btn .tab-icon {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 10px !important;
+    font-size: 1.1rem !important;
+  }
+  .service-tab-btn .tab-label {
+    font-size: 0.9rem !important;
+  }
+  .service-tab-btn .tab-arrow {
+    display: none !important;
+  }
+
+  /* Sticky Mobile Bar */
+  .dentist-sticky-mobile-bar {
+    display: flex !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    z-index: 9999;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    box-sizing: border-box;
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #10b981;
+    box-shadow: 0 0 8px #10b981;
+    animation: statusPulse 1.8s infinite;
+  }
+
+  .status-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  @keyframes statusPulse {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(0.9); opacity: 0.7; }
+  }
+
+  .sticky-bar-actions {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .btn-sticky-action {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .btn-sticky-action:active {
+    transform: scale(0.97);
+  }
+
+  .btn-call {
+    background-color: var(--white);
+    color: var(--text-dark);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-book {
+    background-color: var(--primary);
+    color: var(--white);
+  }
+
+  /* Doctor Bottom Sheet */
+  .doctor-bottom-sheet-overlay {
+    display: block !important;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .doctor-bottom-sheet-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .doctor-bottom-sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 80vh;
+    background-color: var(--white);
+    border-radius: 30px 30px 0 0;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    z-index: 10001;
+    overflow: hidden;
+  }
+
+  .doctor-bottom-sheet-overlay.active .doctor-bottom-sheet {
+    transform: translateY(0);
+  }
+
+  .sheet-drag-handle {
+    width: 40px;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 12px auto 6px auto;
+    flex-shrink: 0;
+  }
+
+  .sheet-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: var(--bg-light);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .sheet-body {
+    padding: 24px;
+    overflow-y: auto;
+    flex: 1;
+    box-sizing: border-box;
+  }
+
+  .sheet-doctor-header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .sheet-doctor-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .sheet-doctor-title h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .sheet-doctor-title p {
+    font-size: 0.85rem;
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  .sheet-doctor-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+  }
+
+  .details-block h4 {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .details-block p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .sheet-cta-btn {
+    margin-top: 24px;
+    width: 100%;
+    justify-content: center;
   }
 }

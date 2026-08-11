@@ -399,7 +399,7 @@
             <h3 class="doctor-name">Dr. Lamia</h3>
             <p class="doctor-role">Cosmetic Dentistry</p>
             <div class="doctor-stars">★★★★★</div>
-            <a href="#booking" class="btn btn-outline card-btn">Book Consultation</a>
+            <button class="btn btn-outline card-btn view-doctor-btn" data-doctor="lamia">View Profile & Book</button>
           </div>
         </div>
         
@@ -418,7 +418,7 @@
             <h3 class="doctor-name">Dr. Ritesh</h3>
             <p class="doctor-role">Preventive Care Specialist</p>
             <div class="doctor-stars">★★★★★</div>
-            <a href="#booking" class="btn btn-accent card-btn">Book Consultation</a>
+            <button class="btn btn-accent card-btn view-doctor-btn" data-doctor="ritesh">View Profile & Book</button>
           </div>
         </div>
         
@@ -431,8 +431,34 @@
             <h3 class="doctor-name">Dr. Samon</h3>
             <p class="doctor-role">Restorative Dentistry</p>
             <div class="doctor-stars">★★★★★</div>
-            <a href="#booking" class="btn btn-outline card-btn">Book Consultation</a>
+            <button class="btn btn-outline card-btn view-doctor-btn" data-doctor="samon">View Profile & Book</button>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Smile Makeover Gallery (Before/After) -->
+  <section class="makeover-section" id="makeover">
+    <div class="container">
+      <div class="section-header" style="text-align: center; margin-bottom: 40px; display: flex; flex-direction: column; align-items: center;">
+        <span class="badge-tag" style="margin-bottom: 12px;">Transformations</span>
+        <h2 class="section-title">Smile Makeover Gallery</h2>
+        <p class="section-subtitle" style="margin: 0 auto; max-width: 600px;">Drag the slider left and right to see the dramatic results of our cosmetic and restorative treatments.</p>
+      </div>
+
+      <div class="before-after-slider" id="before-after-slider">
+        <!-- Before image (top) -->
+        <div class="slider-img img-before" id="slider-before-img" style="background-image: url('https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80');">
+          <div class="slider-label label-before">Before</div>
+        </div>
+        <!-- After image (bottom) -->
+        <div class="slider-img img-after" style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80');">
+          <div class="slider-label label-after">After</div>
+        </div>
+        <!-- Drag Handle divider -->
+        <div class="slider-handle" id="slider-handle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8L22 12L18 16M6 8L2 12L6 16"></path></svg>
         </div>
       </div>
     </div>
@@ -676,6 +702,37 @@
       <p class="modal-message">Thank you <strong id="modal-user-name"></strong>. We have received your booking request for a <span id="modal-service-name"></span> session on <strong id="modal-date-val"></strong>.</p>
       <p class="modal-subtext">Our dental coordinator will text you at <span id="modal-phone-val"></span> within 15 minutes to lock in your exact time slot.</p>
       <button class="btn btn-accent modal-close-btn" id="close-modal">Got it, Thanks!</button>
+    </div>
+  </div>
+
+  <!-- Mobile Sticky Appointment Call Bar -->
+  <div class="dentist-sticky-mobile-bar" id="dentist-sticky-mobile-bar">
+    <div class="status-indicator">
+      <span class="status-dot"></span>
+      <span class="status-label">On-Duty</span>
+    </div>
+    <div class="sticky-bar-actions">
+      <a href="tel:+917696507509" class="btn-sticky-action btn-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        Call Clinic
+      </a>
+      <a href="#booking" class="btn-sticky-action btn-book">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right: 6px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        Book Appointment
+      </a>
+    </div>
+  </div>
+
+  <!-- Doctor Details Mobile Bottom Sheet -->
+  <div class="doctor-bottom-sheet-overlay" id="doctor-bottom-sheet-overlay">
+    <div class="doctor-bottom-sheet" id="doctor-bottom-sheet">
+      <div class="sheet-drag-handle"></div>
+      <button class="sheet-close-btn" id="doctor-sheet-close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="sheet-body" id="doctor-sheet-body">
+        <!-- Content will be injected dynamically via JS -->
+      </div>
     </div>
   </div>
 
