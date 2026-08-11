@@ -1963,62 +1963,22 @@ button, input, select, textarea {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 72px;
-    background: rgba(255, 255, 255, 0.9);
+    height: 76px;
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid rgba(0, 0, 0, 0.08);
     z-index: 9999;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 16px;
+    gap: 12px;
+    padding: 12px 16px;
     box-sizing: border-box;
     box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.06);
-  }
-
-  .status-indicator {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #10b981;
-    box-shadow: 0 0 8px #10b981;
-    animation: statusPulse 1.8s infinite;
-  }
-
-  .status-label {
-    font-size: 0.72rem;
-    font-weight: 800;
-    color: var(--text-dark);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-
-  @keyframes statusPulse {
-    0% { transform: scale(0.9); opacity: 0.7; }
-    50% { transform: scale(1.15); opacity: 1; }
-    100% { transform: scale(0.9); opacity: 0.7; }
-  }
-
-  .sticky-bar-actions {
-    display: flex;
-    gap: 8px;
-    flex: 1;
-    justify-content: flex-end;
   }
 
   .btn-sticky-action {
     display: inline-flex;
     align-items: center;
-    padding: 10px 14px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    border-radius: 12px;
     text-decoration: none;
     transition: transform 0.2s ease;
     box-sizing: border-box;
@@ -2028,15 +1988,28 @@ button, input, select, textarea {
     transform: scale(0.97);
   }
 
-  .btn-call {
+  .btn-call-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
     background-color: var(--white);
     color: var(--text-dark);
     border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
   }
 
   .btn-book {
+    height: 52px;
     background-color: var(--primary);
     color: var(--white);
+    font-size: 0.88rem;
+    font-weight: 700;
+    border-radius: 14px;
+    box-shadow: var(--shadow-md);
   }
 
   /* Doctor Bottom Sheet */
