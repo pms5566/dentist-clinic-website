@@ -1702,11 +1702,95 @@ button, input, select, textarea {
   }
   
   .hero-title {
-    font-size: 2.8rem;
+    font-size: clamp(2rem, 7vw, 2.6rem);
+    line-height: 1.15;
+    margin-bottom: 14px;
   }
   
   .section-title {
     font-size: 2.2rem;
+  }
+
+  .hero-section {
+    min-height: calc(100vh - 76px);
+    min-height: calc(100dvh - 76px);
+    height: calc(100vh - 76px);
+    height: calc(100dvh - 76px);
+    padding-top: 80px;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .hero-container {
+    height: 100%;
+    max-height: calc(100dvh - 156px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-media {
+    display: none;
+  }
+
+  .hero-content .badge-tag {
+    margin-bottom: 12px;
+    font-size: 0.78rem;
+    padding: 6px 14px;
+  }
+
+  .hero-description {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    line-height: 1.5;
+    margin-bottom: 24px;
+    max-width: 480px;
+  }
+
+  .hero-ctas {
+    margin-bottom: 24px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-ctas .btn {
+    padding: 12px 22px;
+    font-size: 0.9rem;
+  }
+
+  .hero-rating {
+    gap: 12px;
+  }
+
+  .rating-avatar, .rating-avatar-plus {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+
+  .stars {
+    font-size: 0.95rem;
+  }
+
+  .rating-text {
+    font-size: 0.85rem;
   }
   
   .stat-divider {
